@@ -1,6 +1,5 @@
 from fastapi import APIRouter
 from usesCase.productos import createProduct, updateProduct, getproduct, get_products, deleteProduct
-from domains.models.productos import products_table
 from domains.schemas.productos import products
 
 src = APIRouter()
@@ -32,8 +31,8 @@ async def introducir_Products(user: products):
 
 
 @src.put("/actualizar_producto/{id}")
-async def actualizar_producto(id: str):
-    actualizar = updateProduct(id)
+async def actualizar_producto(producto: products, id: str):
+    actualizar = updateProduct(id, producto)
     return actualizar
 
 # borrar producto
