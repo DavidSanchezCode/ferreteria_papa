@@ -1,3 +1,0 @@
-{"script": {
-    "start": "Uvicorn app:app"
-  }}
