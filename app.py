@@ -14,4 +14,4 @@ async def main_route():
     return [{"name": "david"}]
 
 if __name__ == '__main__':
-    uvicorn.run(app, host='localhost', port=5000, log_config=log_config)
+    uvicorn.run(app, host='localhost', port=5000)
