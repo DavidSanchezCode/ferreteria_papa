@@ -41,31 +41,37 @@
                     </li>
                     <li>
                         <label for="precio_al_que_llega"></label>
-                        <input type="number" placeholder="precio de llegada" id="precio_al_que_llega" name="precio_al_que_llega">
+                        <input type="number" placeholder="precio de llegada" id="precio_al_que_llega"
+                            name="precio_al_que_llega">
                     </li>
                     <li>
                         <label for="cantidad_del_producto_actual"></label>
-                        <input type="number" placeholder="Cantidad actual" id="cantidad_del_producto_actual" name="cantidad_del_producto_actual">
+                        <input type="number" placeholder="Cantidad actual" id="cantidad_del_producto_actual"
+                            name="cantidad_del_producto_actual">
                     </li>
                     <li>
                         <label for="precio_por_unidad"></label>
-                        <input type="number" placeholder="precio por unidad" id="precio_por_unidad" name="precio_por_unidad">
+                        <input type="number" placeholder="precio por unidad" id="precio_por_unidad"
+                            name="precio_por_unidad">
                     </li>
                     <li>
                         <label for="precio_por_mas_de_6_unds"></label>
-                        <input type="number" placeholder="precio por cada 6 und" id="precio_por_mas_de_6_unds" name="precio_por_mas_de_6_unds">
+                        <input type="number" placeholder="precio por cada 6 und" id="precio_por_mas_de_6_unds"
+                            name="precio_por_mas_de_6_unds">
                     </li>
                     <li>
                         <label for="precio_por_mas_de_12_unds"></label>
-                        <input type="number" placeholder="precio por cada 12 und" id="precio_por_mas_de_12_unds" name="precio_por_mas_de_12_unds">
+                        <input type="number" placeholder="precio por cada 12 und" id="precio_por_mas_de_12_unds"
+                            name="precio_por_mas_de_12_unds">
                     </li>
                     <label for="precio_con_rebaja"></label>
-                    <input type="number" placeholder="precio con rebaja" id="precio_con_rebaja" name="precio_con_rebaja">
+                    <input type="number" placeholder="precio con rebaja" id="precio_con_rebaja"
+                        name="precio_con_rebaja">
                     <li>
-                    <button type="submit" onclick="crearProductoPOST()">Nuevo producto</button>
-                </li>
+                        <button type="submit" onclick="crearProductoPOST()">Nuevo producto</button>
+                    </li>
                 </ul>
-               
+
 
             </form>
 
@@ -78,43 +84,49 @@
             <button class="x_pop" id="btncerrarModal_ACT">X</button>
             <h2 class="titulo_popUp"> Actualizar<br>producto</h2>
 
-            <form id="formulario_añadir">
+            <form action="" method="put">
                 <ul class="formulario">
                     <li>
-                        <label></label>
-                        <input type="number" placeholder="id" id="num_id" >
+                        <label for="num_id"></label>
+                        <input type="number" placeholder="id" id="num_id" name="num_id">
                     </li>
                     <li>
-                        <label></label>
-                        <input type="text" placeholder="Nombre" id="nombre_del_producto" >
+                        <label for="nameA"></label>
+                        <input type="text" placeholder="Nombre" id="nombre_del_productoA" name="nameA">
                     </li>
                     <li>
-                        <label></label>
-                        <input type="number" placeholder="precio de llegada" id="precio_al_que_llega">                    
+                        <label for="precio_al_que_llegaA"></label>
+                        <input type="number" placeholder="precio de llegada" id="precio_al_que_llegaA"
+                            name="precio_al_que_llegaA">
                     </li>
                     <li>
-                        <label for="name"></label>
-                        <input type="number" placeholder="Cantidad actual" id="cantidad_del_producto_actual">
+                        <label for="cantidad_del_producto_actualA"></label>
+                        <input type="number" placeholder="Cantidad actual" id="cantidad_del_producto_actualA"
+                            name="cantidad_del_producto_actualA">
                     </li>
                     <li>
-                        <label for="name"></label>
-                        <input type="number" placeholder="precio por unidad" id="precio_por_unidad">
+                        <label for="precio_por_unidadA"></label>
+                        <input type="number" placeholder="precio por unidad" id="precio_por_unidadA"
+                            name="precio_por_unidadA">
                     </li>
                     <li>
-                        <label for="name"></label>
-                        <input type="number" placeholder="precio por cada 6 und" id="precio_por_mas_de_6_unds">
+                        <label for="precio_por_mas_de_6_undsA"></label>
+                        <input type="number" placeholder="precio por cada 6 und" id="precio_por_mas_de_6_undsA"
+                            name="precio_por_mas_de_6_undsA">
                     </li>
                     <li>
-                        <label for="name"></label>
-                        <input type="number" placeholder="precio por cada 12 und" id="precio_por_mas_de_12_unds">
+                        <label for="precio_por_mas_de_12_undsA"></label>
+                        <input type="number" placeholder="precio por cada 12 und" id="precio_por_mas_de_12_undsA"
+                            name="precio_por_mas_de_12_undsA">
                     </li>
-                    <label for="name"></label>
-                    <input type="number" placeholder="precio con rebaja" id="precio_con_rebaja">
-                    <li class="button">
-                        <button type="submit">Enviar</button>
-                    </li>
-                </ul>
-
+                    <label for="precio_con_rebajaA"></label>
+                    <input type="number" placeholder="precio con rebaja" id="precio_con_rebajaA"
+                        name="precio_con_rebajaA">
+                    </ul>
+                    
+                        <button type="button" onclick="actualizarProductoPOST()">Actualizar producto</button>
+                   
+                
             </form>
         </dialog>
         <!--FIN DE DIALOG DE ACTUALIZAR-->
@@ -125,19 +137,22 @@
             <button class="x_pop" id="btncerrarModal_BUSC">X</button>
             <h2 class="titulo_popUp">Buscar<br>producto</h2>
 
-            <form action="" method="put">
+            <form action="" method="get">
                 <ul class="formulario">
                     <li>
-                        <label for="name"></label>
-                        <input type="number" placeholder="id" id="num_id">
+                        <label for="num_idB"></label>
+                        <input type="number" placeholder="id" id="num_idB" name="num_idB">
                     </li>
-                    <li class="button">
-                        <button type="submit">Enviar</button>
+                    <li>
+                        <button type="submit" onclick="buscarProductoPOST()">Buscar</button>
                     </li>
                 </ul>
             </form>
+
+            <div> </div>
+
         </dialog>
-        <!--FIN DE DIALOG DE ACTUALIZAR-->
+        <!--FIN DE DIALOG DE BUSCAR-->
 
         <!-- DIALOG DE ELIMINAR-->
 
@@ -145,16 +160,17 @@
             <button class="x_pop" id="btncerrarModal_ELIM">X</button>
             <h2 class="titulo_popUp">Eliminar<br>producto</h2>
 
-            <form>
+            <form action="" method="delete">
                 <ul class="formulario">
                     <li>
-                        <label for="name"></label>
-                        <input type="number" placeholder="id" id="num_id" name="user_name">
+                        <label for="num_idC"></label>
+                        <input type="number" placeholder="id" id="num_idC" name="num_idC">
                     </li>
-                    <li class="button">
-                        <button id="btn_eliminar" type="submit">Enviar</button>
+                    <li>
+                        <button type="submit" onclick="BorrarProductoPOST()">Borrar</button>
                     </li>
                 </ul>
+
             </form>
         </dialog>
         <!--FIN DE DIALOG DE ELIMINAR-->
