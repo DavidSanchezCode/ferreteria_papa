@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "start": "uvicorn app:app --host 0.0.0.0 --port 5000"
+    "start": "uvicorn Crud.app:app --host 0.0.0.0 --port 5000"
   }
 }
