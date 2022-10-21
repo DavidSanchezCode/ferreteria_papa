@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+}
+
+body {
+    background: color rgb(245, 228, 173);
+}
+
+.header {
+    background-color: rgb(255, 210, 9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    height: 100px;
+    padding: 0 5px;
+}
+.circular--square {
+    border-radius: 25%;
+  }
+
+.header .logo img{   
+    height: 70px;
+    width: auto;
+    
+}
+.header .nav-links{
+    list-style: none;
+    border-bottom: 2px;
+    border-radius: 12px;
+    border-color: black;
+}
+.header .nav-links li{
+    display: inline-block;
+    padding: 0 20px;
+    
+}
+.header .nav-links li:hover{
+    transform: scale(1.1);
+}
+.header .nav-links a {
+    font-size: 700;
+    color: rgb(0, 0, 0);
+    border-color: red;
+    border-radius: 30px;
+    text-decoration: none;
+    padding: 15px;
+    background: #ecb707;
+    margin-left: -2em;
+}
+.header .nav-links a:hover {
+    color: rgba(255, 145, 0, 0.993);
+    background: bisque;
+}
+.table{
+    margin-top: 15px;
+    border-radius: 15px;
+}
+
+
+/*Dialog*/
+dialog {
+    margin: 12px 12px 12 px 12px;
+    align-items: center;
+   background-color: #ecb707;
+   padding:0 25px;
+   border-radius: 10px;
+}
+
+.dialog .formulario{
+    list-style: none;
+    margin-right: 30px;
+    
+}
+.dialog .titulo_popUp{
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 600;
+
+}
+input {
+    margin-top: 10px;
+    color:white;
+    width: 100%;
+    border: 1px solid #f4a31d;
+    border-radius: 8px;
+    padding: 10px;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    background:#111111;
+}
+::placeholder {
+    color: rgb(138, 129, 2);
+    font-style: italic;
+}
+ [type=submit] {
+    margin-left: 30%;
+    margin-top: 10px;
+    display: inline-block;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+    width: 45%;
+    background-color: #f4a31d;
+    border: #f4a31d;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 3px;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+[type=submit]:hover {
+    background-color:black;
+    color:#ffffff;
+
+    
+}
+label{
+    margin-bottom: 15px;
+}
