@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from Crud.usesCase.productos import createProduct, updateProduct, getproduct, get_products, deleteProduct
-from Crud.domains.schemas.productos import products
+from Crud.domains.schemas.productos import productsSalida
 
 src = APIRouter()
 
@@ -12,25 +12,25 @@ def ver_productos():
 
 
 # busca un producto en especifico
-@src.get("/producto/{id}")
+@src.get("/productos/{id}")
 def ver_producto(id: str):
-    producto = getproduct(id)
+    producto =  getproduct(id)
     return producto
 
 # registra los productos
-@src.post("/Registro_de_productos/")
-async def introducir_Products(user: products):
+@src.post("/productos")
+async def introducir_Products(user: productsSalida):
     infoUser = createProduct(user)
     return infoUser
 
 # actualiza los productos
-@src.put("/actualizar_producto/{id}")
-async def actualizar_producto(producto: products, id: str):
-    actualizar = updateProduct(id, producto)
+@src.put("/productos/{id}")
+async def actualizar_producto(producto:productsSalida, id: str):
+    actualizar = updateProduct(producto,id )
     return actualizar
 
 # borrar producto
-@src.delete("/borrar_producto/{id}")
+@src.delete("/productos/{id}")
 async def borrar_producto(id: str):
     borrar = deleteProduct(id)
     return borrar

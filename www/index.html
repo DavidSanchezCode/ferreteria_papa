@@ -20,24 +20,77 @@
         </div>
         <nav>
             <ul class="nav-links">
-                <li><button id="btnabrirModal">añadir</button></li>
-                <li><a href="#">Actualizar </a></li>
-                <li><a href="#">Buscar</a></li>
-                <li><a href="#">Borrar</a></li>
+                <li><button class="botones_uso" id="btnabrirModal">Añadir</button></li>
+                <li><button class="botones_uso" id="btnabrirModal_ACT">Actualizar</button></li>
+                <li><button class="botones_uso" id="btnabrirModal_BUSC">Buscar</button></li>
+                <li><button class="botones_uso" id="btnabrirModal_ELIM">Eliminar</button></li>
             </ul>
         </nav>
 
+        <!-- DIALOG DE AÑADIR-->
+
         <dialog id="modal" class="dialog">
+            <button class="x_pop" id="btncerrarModal">X</button>
             <h2 class="titulo_popUp">creacion<br>de producto</h2>
-            <form action="" method="post">
+
+            <form action="" method="get">
                 <ul class="formulario">
                     <li>
                         <label for="name"></label>
-                        <input type="text" placeholder="Nombre" id="nombre_del_producto" name="user_name">
+                        <input type="text" placeholder="Nombre" id="nombre_del_producto" name="name">
                     </li>
                     <li>
-                        <label for="name"></label>
-                        <input type="number" placeholder="precio de llegada" id="precio_al_que_llega">
+                        <label for="precio_al_que_llega"></label>
+                        <input type="number" placeholder="precio de llegada" id="precio_al_que_llega" name="precio_al_que_llega">
+                    </li>
+                    <li>
+                        <label for="cantidad_del_producto_actual"></label>
+                        <input type="number" placeholder="Cantidad actual" id="cantidad_del_producto_actual" name="cantidad_del_producto_actual">
+                    </li>
+                    <li>
+                        <label for="precio_por_unidad"></label>
+                        <input type="number" placeholder="precio por unidad" id="precio_por_unidad" name="precio_por_unidad">
+                    </li>
+                    <li>
+                        <label for="precio_por_mas_de_6_unds"></label>
+                        <input type="number" placeholder="precio por cada 6 und" id="precio_por_mas_de_6_unds" name="precio_por_mas_de_6_unds">
+                    </li>
+                    <li>
+                        <label for="precio_por_mas_de_12_unds"></label>
+                        <input type="number" placeholder="precio por cada 12 und" id="precio_por_mas_de_12_unds" name="precio_por_mas_de_12_unds">
+                    </li>
+                    <label for="precio_con_rebaja"></label>
+                    <input type="number" placeholder="precio con rebaja" id="precio_con_rebaja" name="precio_con_rebaja">
+                    <li>
+                    <button type="submit" onclick="crearProductoPOST()">Nuevo producto</button>
+                </li>
+                </ul>
+               
+
+            </form>
+
+        </dialog>
+        <!--FIN DE DIALOG DE AÑADIR-->
+
+        <!-- DIALOG DE ACTUALIZAR-->
+
+        <dialog id="modal1" class="dialog">
+            <button class="x_pop" id="btncerrarModal_ACT">X</button>
+            <h2 class="titulo_popUp"> Actualizar<br>producto</h2>
+
+            <form id="formulario_añadir">
+                <ul class="formulario">
+                    <li>
+                        <label></label>
+                        <input type="number" placeholder="id" id="num_id" >
+                    </li>
+                    <li>
+                        <label></label>
+                        <input type="text" placeholder="Nombre" id="nombre_del_producto" >
+                    </li>
+                    <li>
+                        <label></label>
+                        <input type="number" placeholder="precio de llegada" id="precio_al_que_llega">                    
                     </li>
                     <li>
                         <label for="name"></label>
@@ -56,15 +109,55 @@
                         <input type="number" placeholder="precio por cada 12 und" id="precio_por_mas_de_12_unds">
                     </li>
                     <label for="name"></label>
-                    <input type="number" placeholder="precio_con_rebaja" id="  precio_con_rebaja">
+                    <input type="number" placeholder="precio con rebaja" id="precio_con_rebaja">
                     <li class="button">
-                        <button type="submit" id="btncerrarModal">Salir</button>
+                        <button type="submit">Enviar</button>
                     </li>
                 </ul>
 
             </form>
-
         </dialog>
+        <!--FIN DE DIALOG DE ACTUALIZAR-->
+
+        <!-- DIALOG DE BUSCAR-->
+
+        <dialog id="modal2" class="dialog">
+            <button class="x_pop" id="btncerrarModal_BUSC">X</button>
+            <h2 class="titulo_popUp">Buscar<br>producto</h2>
+
+            <form action="" method="put">
+                <ul class="formulario">
+                    <li>
+                        <label for="name"></label>
+                        <input type="number" placeholder="id" id="num_id">
+                    </li>
+                    <li class="button">
+                        <button type="submit">Enviar</button>
+                    </li>
+                </ul>
+            </form>
+        </dialog>
+        <!--FIN DE DIALOG DE ACTUALIZAR-->
+
+        <!-- DIALOG DE ELIMINAR-->
+
+        <dialog id="modal3" class="dialog">
+            <button class="x_pop" id="btncerrarModal_ELIM">X</button>
+            <h2 class="titulo_popUp">Eliminar<br>producto</h2>
+
+            <form>
+                <ul class="formulario">
+                    <li>
+                        <label for="name"></label>
+                        <input type="number" placeholder="id" id="num_id" name="user_name">
+                    </li>
+                    <li class="button">
+                        <button id="btn_eliminar" type="submit">Enviar</button>
+                    </li>
+                </ul>
+            </form>
+        </dialog>
+        <!--FIN DE DIALOG DE ELIMINAR-->
 
     </header>
 
