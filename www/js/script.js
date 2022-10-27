@@ -1,6 +1,6 @@
 async function cargarinvetarioGET(url) {
 
-console.log("hola mundo");
+    console.log("hola mundo");
 
     let products = fetch(url)
         .then(res => res.json())
@@ -138,40 +138,40 @@ async function actualizarProductoPOST() {
     let id = document.getElementById("num_id").value;
 
     let nombre = null
-    if (document.getElementById("nombre_del_productoA").value != ""){
+    if (document.getElementById("nombre_del_productoA").value != "") {
         nombre = document.getElementById("nombre_del_productoA").value
-    };  
-   
+    };
+
     let precio_al_que_llega = null
-    if (document.getElementById("precio_al_que_llegaA").value != ""){
+    if (document.getElementById("precio_al_que_llegaA").value != "") {
         precio_al_que_llega = document.getElementById("precio_al_que_llegaA").value
-    }; 
-    
+    };
+
     let cantidad_del_producto_actual = null
-    if (document.getElementById("cantidad_del_producto_actualA").value != ""){
+    if (document.getElementById("cantidad_del_producto_actualA").value != "") {
         cantidad_del_producto_actual = document.getElementById("cantidad_del_producto_actualA").value
-    };  
-    
+    };
+
     let precio_por_unidad = null
-    if (document.getElementById("precio_por_unidadA").value != ""){
+    if (document.getElementById("precio_por_unidadA").value != "") {
         precio_por_unidad = document.getElementById("precio_por_unidadA").value
-    }; 
-    
+    };
+
     let precio_por_mas_de_6_unds = null
-    if (document.getElementById("precio_por_mas_de_6_undsA").value != ""){
+    if (document.getElementById("precio_por_mas_de_6_undsA").value != "") {
         precio_por_mas_de_6_unds = document.getElementById("precio_por_mas_de_6_undsA").value
-    };  
+    };
 
     let precio_por_mas_de_12_unds = null
-    if (document.getElementById("precio_por_mas_de_12_undsA").value != ""){
+    if (document.getElementById("precio_por_mas_de_12_undsA").value != "") {
         precio_por_mas_de_12_unds = document.getElementById("precio_por_mas_de_12_undsA").value
-    };  
+    };
 
     let precio_con_rebaja = null
-    if (document.getElementById("precio_con_rebajaA").value != ""){
+    if (document.getElementById("precio_con_rebajaA").value != "") {
         precio_con_rebaja = document.getElementById("precio_con_rebajaA").value
-    };  
-   
+    };
+
     productocargar = {}
     productocargar.nombre_del_producto = nombre;
     productocargar.precio_al_que_llega = precio_al_que_llega;
@@ -181,7 +181,7 @@ async function actualizarProductoPOST() {
     productocargar.precio_por_mas_de_12_unds = precio_por_mas_de_12_unds;
     productocargar.precio_con_rebaja = precio_con_rebaja;
 
-    let url = 'http://127.0.0.1:8000/productos/'+id;
+    let url = 'http://127.0.0.1:8000/productos/' + id;
 
     console.log(productocargar);
 
@@ -199,30 +199,30 @@ async function actualizarProductoPOST() {
 
 let encontrado = {}
 
-async function buscarProductoPOST(){
+async function buscarProductoPOST() {
 
     let id = document.getElementById("num_idB").value;
 
-    let url = 'http://127.0.0.1:8000/productos/'+id;
+    let url = 'http://127.0.0.1:8000/productos/' + id;
     await fetch(url, {
         method: 'GET',
         headers: {
             'Content-type': 'application/json'
         }
 
-    }).then(res => {
+    }).then(res => res.json())/* {
         encontrado= res.data    
         console.log(res.data)
-    })
+    })*/
         .catch(error => console.error('error:', error))
         .then(response => console.log('exito:', response))
 }
 
-async function BorrarProductoPOST(){
+async function BorrarProductoPOST() {
 
     let id = document.getElementById("num_idC").value;
 
-    let url = 'http://127.0.0.1:8000/productos/'+id;
+    let url = 'http://127.0.0.1:8000/productos/' + id;
     await fetch(url, {
         method: 'DELETE',
         headers: {
@@ -233,6 +233,25 @@ async function BorrarProductoPOST(){
         .catch(error => console.error('error:', error))
         .then(response => console.log('exito:', response))
 }
+/* volver excel*/
+
+const $btnExportar = document.querySelector("#btnExportar"),
+    $tablaExcel = document.querySelector("#tablaExcel");
+
+$btnExportar.addEventListener("click", function () {
+    let tableExport = new TableExport($tablaExcel, {
+        exportButtons: false, // No queremos botones
+        filename: "Mi tabla de Excel", //Nombre del archivo de Excel
+        sheetname: "Mi tabla de Excel", //Título de la hoja
+    });
+    let datos = tableExport.getExportData();
+    let preferenciasDocumento = datos.tablaExcel.xlsx;
+    tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
+});
+
+
+
+
 
 
 
