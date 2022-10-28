@@ -245,13 +245,15 @@ async function buscarProductoPOST() {
         headers: {
             'Content-type': 'application/json'            
         }  
+
+        
     }).then(res =>res.json())   
 
         .catch(error => console.error('error:', error))
         .then(response => console.log('exito:', response))
 
-    for(let k in url) {
-            let productos = url[k];
+    for(let k in id) {
+            let productos = id[k];
             tr = document.createElement('tr');
             for (let x in productos) {
                 td = document.createElement('td');
