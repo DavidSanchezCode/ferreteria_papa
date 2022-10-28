@@ -97,6 +97,10 @@ btncerrarModal_ELIM.addEventListener("click", () => {
     modal3.close();
 })
 
+/*--------------------------------------------------------------------------------*/
+
+/*CREAR*/
+
 
 async function crearProductoPOST() {
 
@@ -132,6 +136,11 @@ async function crearProductoPOST() {
         .catch(error => console.error('error:', error))
         .then(response => console.log('exito:', response))
 }
+
+
+/*Actualizar*/
+
+
 
 async function actualizarProductoPOST() {
 
@@ -197,26 +206,38 @@ async function actualizarProductoPOST() {
         .then(response => console.log('exito:', response))
 }
 
+
+
+
+/*Buscar*/
+
+
+
 let encontrado = {}
 
 async function buscarProductoPOST() {
 
     let id = document.getElementById("num_idB").value;
-
     let url = 'http://127.0.0.1:8000/productos/' + id;
     await fetch(url, {
         method: 'GET',
         headers: {
             'Content-type': 'application/json'
         }
-
-    }).then(res => res.json())/* {
-        encontrado= res.data    
-        console.log(res.data)
-    })*/
+    }).then(res => {
+       encontrado = res.data
+       console.log(res.data)
+    })
         .catch(error => console.error('error:', error))
         .then(response => console.log('exito:', response))
 }
+
+
+
+
+/*BORRAR*/
+
+
 
 async function BorrarProductoPOST() {
 
@@ -233,6 +254,10 @@ async function BorrarProductoPOST() {
         .catch(error => console.error('error:', error))
         .then(response => console.log('exito:', response))
 }
+
+/*-------------------------------------------------------------------------------------------*/
+
+
 /* volver excel*/
 
 const $btnExportar = document.querySelector("#btnExportar"),
@@ -253,25 +278,3 @@ $btnExportar.addEventListener("click", function () {
 
 
 
-
-
-
-/*function eliminarproducto(btn_eliminar) {
-    let fila = btn_eliminar.parentNode.parentNode;
-    let id = fila.firtsElementChild.innerHTML;
-    let url = 'http://127.0.0.1:8000/productos';
-    alertify.confirm("se ah eliminado el producto" + id + "",
-    function () {
-            fetch(url + id, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .catch(err => console.error('error:', error))
-                .then(response => console.log('exito:', response))
-                .then(() => location.reload())
-            alertify.success('Borrado');
-        },
-        function() {
-            alertify.error('cancelado')
-        })
-}*/
