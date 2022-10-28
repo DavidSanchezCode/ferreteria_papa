@@ -100,6 +100,19 @@ body {
 }
 
 
+.header .dialog_busc {
+    position: absolute;
+    margin: 5% 15%;
+    align-items: center;
+    background-color: #ecb707;
+    padding: 15px;
+    border-radius: 10px;
+}
+.header .dialog_busc::backdrop {
+   background-color: #11111185;
+}
+
+
 
 .dialog .formulario {
     list-style: none;
@@ -190,6 +203,8 @@ label {
 .excelimg img:hover{
     transform: scale(1.1);
 }
+
+
 
 /*DIALOG DE ACTUALIZAR*/
 /*DIALOG DE BUSCAR*/

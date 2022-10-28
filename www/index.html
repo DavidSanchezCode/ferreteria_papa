@@ -154,10 +154,29 @@
                     </li>
                     <!--<li>                        
                     </li>-->
-                </ul><button type="button" onclick="buscarProductoPOST()">Buscar</button>
+                </ul><button type="button" id="btnabrirModal_BUSCAR2" onclick="buscarProductoPOST()">Buscar</button>
             </form>
 
-            <div> </div>
+            <dialog id="modal4"  class="dialog_busc">
+                <button class="x_pop" id="btncerrarModal_BUSCAR2">X</button>
+                <table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">#id</th>
+                            <th scope="col">nombre</th>
+                            <th scope="col">precio </th>
+                            <th scope="col">cantidad actual</th>
+                            <th scope="col">precio por unidad</th>
+                            <th scope="col">precio por 6 und</th>
+                            <th scope="col">precio por 12 und</th>
+                            <th scope="col">precio con rebaja</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodyBuscar">
+    
+                    </tbody>
+                </table>
+            </dialog>
 
         </dialog>
         <!--FIN DE DIALOG DE BUSCAR-->
@@ -180,7 +199,8 @@
                 </ul>
 
             </form>
-        </dialog>
+
+        
         <!--FIN DE DIALOG DE ELIMINAR-->
 
     </header>

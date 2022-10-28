@@ -70,12 +70,30 @@ const btncerrar_BUSC =
 const modal2 =
     document.querySelector("#modal2");
 
+
+const btnabrirModal_BUSCAR2 =
+    document.querySelector("#btnabrirModal_BUSCAR2")
+const btncerrarModal_BUSCAR2 =
+    document.querySelector("#btncerrarModal_BUSCAR2")
+const modal4 =
+    document.querySelector("#modal4");
+
+
+
 btnabrirModal_BUSC.addEventListener("click", () => {
     modal2.showModal();
 })
 
 btncerrarModal_BUSC.addEventListener("click", () => {
     modal2.close();
+})
+
+btnabrirModal_BUSCAR2.addEventListener("click", () => {
+    modal4.showModal();
+})
+
+btncerrarModal_BUSCAR2.addEventListener("click", () => {
+    modal4.close();
 })
 
 /*dialog de eliminar*/
@@ -202,6 +220,7 @@ async function actualizarProductoPOST() {
         }
 
     }).then(res => res.json())
+
         .catch(error => console.error('error:', error))
         .then(response => console.log('exito:', response))
 }
@@ -213,25 +232,38 @@ async function actualizarProductoPOST() {
 
 
 
-let encontrado = {}
+
+let encontrado={}
 
 async function buscarProductoPOST() {
 
     let id = document.getElementById("num_idB").value;
     let url = 'http://127.0.0.1:8000/productos/' + id;
+    let tabla2 = document.getElementById('bodyBuscar')
     await fetch(url, {
         method: 'GET',
         headers: {
-            'Content-type': 'application/json'
-        }
-    }).then(res => {
-       encontrado = res.data
-       console.log(res.data)
-    })
+            'Content-type': 'application/json'            
+        }  
+    }).then(res =>res.json())   
+
         .catch(error => console.error('error:', error))
         .then(response => console.log('exito:', response))
-}
 
+    for(let k in url) {
+            let productos = url[k];
+            tr = document.createElement('tr');
+            for (let x in productos) {
+                td = document.createElement('td');
+                td.innerHTML = productos[x];
+                tr.appendChild(td);
+
+                tabla2.appendChild(tr)
+            }
+
+       
+}
+}
 
 
 
@@ -273,8 +305,4 @@ $btnExportar.addEventListener("click", function () {
     let preferenciasDocumento = datos.tablaExcel.xlsx;
     tableExport.export2file(preferenciasDocumento.data, preferenciasDocumento.mimeType, preferenciasDocumento.filename, preferenciasDocumento.fileExtension, preferenciasDocumento.merges, preferenciasDocumento.RTL, preferenciasDocumento.sheetname);
 });
-
-
-
-
 
