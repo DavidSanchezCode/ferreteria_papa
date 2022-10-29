@@ -88,6 +88,8 @@ btncerrarModal_BUSC.addEventListener("click", () => {
     modal2.close();
 })
 
+
+
 btnabrirModal_BUSCAR2.addEventListener("click", () => {
     modal4.showModal();
 })
@@ -231,41 +233,43 @@ async function actualizarProductoPOST() {
 /*Buscar*/
 
 
-
-
-let encontrado={}
-
 async function buscarProductoPOST() {
 
     let id = document.getElementById("num_idB").value;
     let url = 'http://127.0.0.1:8000/productos/' + id;
+
     let tabla2 = document.getElementById('bodyBuscar')
+
+    let encontrado = {}
     await fetch(url, {
         method: 'GET',
         headers: {
-            'Content-type': 'application/json'            
-        }  
+            'Content-type': 'application/json'
+        }
 
-        
-    }).then(res =>res.json())   
+    }).then(async (res) => {
+        encontrado = await res.json()
+        return encontrado
+    })
+    
+    tr = document.createElement('tr');
+    for (let x in encontrado) {
+        td = document.createElement('td');
+        td.innerHTML = encontrado[x];
+        tr.appendChild(td);
+    }
+    tdOpc = document.createElement('td');
+    tabla2.appendChild(tr)
 
-        .catch(error => console.error('error:', error))
-        .then(response => console.log('exito:', response))
 
-    for(let k in id) {
-            let productos = id[k];
-            tr = document.createElement('tr');
-            for (let x in productos) {
-                td = document.createElement('td');
-                td.innerHTML = productos[x];
-                tr.appendChild(td);
+    console.log(encontrado)
+    return encontrado;
 
-                tabla2.appendChild(tr)
-            }
-
-       
 }
-}
+
+
+
+
 
 
 

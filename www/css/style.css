@@ -204,6 +204,29 @@ label {
     transform: scale(1.1);
 }
 
+.dialog .formulario .x_pop2{
+    margin-left: 30%;
+    margin-top: 10px;
+    display: inline-block;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+    width: 45%;
+    background-color: #f4a31d;
+    border: #f4a31d;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 3px;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+.dialog .formulario .x_pop2:hover{
+    background-color: black;
+    color: #ffffff;
+}
+
 
 
 /*DIALOG DE ACTUALIZAR*/
